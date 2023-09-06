@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>JS Form Validation</title>
+</head>
+<body>
+    <div id="form-container">
+        <form id="form">
+            <div id="title">JS Form Validation</div>
+            <div id="email-container" class="input-area">
+                <label for="email" class="label" id="email-label">Email: </label>
+                <input type="text" name="email" id="email">
+                <div id="email-error"></div>
+            </div>
+            <div id="country-container" class="input-area">
+                <label for="country" id="country-label">Country: </label>
+                <select name="country" id="country">
+                    <option value=""></option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                </select>
+                <div id="country-error"></div>
+            </div>
+            <div id="zip-container" class="input-area">
+                <label for="zip" id="zip-label">Zip Code: </label>
+                <input type="text" name="zip" id="zip">
+                <div id="zip-error"></div>
+            </div>
+            <div id="password-container" class="input-area">
+                <label for="password" id="password-label">Password: </label>
+                <input type="password" name="password" id="password">
+                <div id="password-error"></div>
+            </div>
+            <div id="password-confirmation-container" class="input-area">
+                <label for="password-confirmation" id="password-confirmation-label">Confirm Password: </label>
+                <input type="password" name="password-confirmation" id="password-confirmation">
+                <div id="password-confirmation-error"></div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>
