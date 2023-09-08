@@ -22,9 +22,13 @@ let passwordsSame = false;
 emailInput.addEventListener("blur", () => {
     let emailEntry = document.getElementById("email").value;
      if (emailEntry === "") {
-        emailError.innerHTML = "Email required"
+        emailError.innerHTML = "Email required";
+        emailInput.classList.add("invalid");
      } else if (!isValidEmail(emailEntry)) {
         emailError.innerHTML = "Invalid email address";
+        emailInput.classList.add("invalid");
+    } else {
+        emailInput.classList.remove("invalid");
     };
 });
 
@@ -32,6 +36,9 @@ countryInput.addEventListener("blur", () => {
     let countryEntry = document.getElementById("country").value;
     if (!isValidCountry(countryEntry)) {
         countryError.innerHTML = "Country required";
+        countryInput.classList.add("invalid");
+    } else {
+        countryInput.classList.remove("invalid");
     }
 })
 
@@ -39,14 +46,20 @@ zipInput.addEventListener("blur", () => {
     let zipEntry = document.getElementById("zip").value;
     let countryEntry = document.getElementById("country").value;
     if (!isValidZip(zipEntry, countryEntry)) {
-        zipError.innerHTML = "Invalid zip code"
+        zipError.innerHTML = "Invalid zip code";
+        zipInput.classList.add("invalid");
+    } else {
+        zipInput.classList.remove("invalid");
     }
 })
 
 passwordInput.addEventListener("blur", () => {
     let passwordEntry = document.getElementById("password").value;
     if (!isValidPassword(passwordEntry)) {
-        passwordError.innerHTML = "Password required"
+        passwordError.innerHTML = "Password required";
+        passwordInput.classList.add("invalid");
+    } else {
+        passwordInput.classList.remove("invalid");
     }
 })
 
@@ -54,8 +67,14 @@ passwordConfirmationInput.addEventListener("blur", () => {
     passwordConfirmationError.innerHTML = ""
     let passwordEntry = document.getElementById("password").value;
     let passwordConfirmationEntry = document.getElementById("password-confirmation").value;
-    if (passwordEntry !== passwordConfirmationEntry) {
-        passwordConfirmationError.innerHTML = "Passwords do not match"
+    if (passwordConfirmationEntry == "") {
+        passwordConfirmationError.innerHTML = "Password confirmation required";
+        passwordConfirmationInput.classList.add("invalid");
+    } else if (passwordEntry !== passwordConfirmationEntry) {
+        passwordConfirmationError.innerHTML = "Passwords do not match";
+        passwordConfirmationInput.classList.add("invalid");
+    } else {
+        passwordConfirmationInput.classList.remove("invalid");
     }
 })
 
@@ -78,37 +97,50 @@ submitButton.addEventListener("click", (e) => {
     
     if (emailEntry == "") {
         emailError.innerHTML = "Email required";
+        emailInput.classList.add("invalid");
     } else if (!isValidEmail(emailEntry)) {
         emailError.innerHTML = "Invalid email address";
+        emailInput.classList.add("invalid");
     } else {
+        emailInput.classList.remove("invalid");
         emailValid = true;
     }
 
     if (!isValidCountry(countryEntry)) {
         countryError.innerHTML = "Country required";
+        countryInput.classList.add("invalid");
     } else {
+        countryInput.classList.remove("invalid");
         countryValid = true;
     }
 
     if (zipEntry == "") {
-        zipError.innerHTML = "Zip code required"
+        zipError.innerHTML = "Zip code required";
+        zipInput.classList.add("invalid");
     }else if (!isValidZip(zipEntry, countryEntry)) {
         zipError.innerHTML = "Invalid zip code";
+        zipInput.classList.add("invalid");
     } else {
+        zipInput.classList.remove("invalid");
         zipValid = true;
     }
 
     if (!isValidPassword(passwordEntry)) {
         passwordError.innerHTML = "Password required";
+        passwordInput.classList.add("invalid");
     } else {
+        passwordInput.classList.remove("invalid");
         passwordValid = true;
     }
 
     if (passwordConfirmationEntry == "") {
         passwordConfirmationError.innerHTML = "Password confirmaion required";
+        passwordConfirmationInput.classList.add("invalid");
     } else if (!passwordsMatch(passwordEntry, passwordConfirmationEntry)) {
         passwordConfirmationError.innerHTML = "Password fields do not match";
+        passwordConfirmationInput.classList.add("invalid");
     } else {
+        passwordConfirmationInput.classList.remove("invalid");
         passwordsSame = true;
     }
     
